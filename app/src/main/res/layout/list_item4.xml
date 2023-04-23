@@ -29,13 +29,12 @@
 
             <TextView
                 android:id="@+id/item_description"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
                 android:textColor="#F1EEEE"
                 android:textSize="16sp"
-                tools:ignore="TextSizeCheck"
-                tools:text="@string/movie_brat_description" />
+                tools:ignore="TextSizeCheck" />
 
         </LinearLayout>
 

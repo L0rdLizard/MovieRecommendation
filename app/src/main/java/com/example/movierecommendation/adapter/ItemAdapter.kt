@@ -20,6 +20,7 @@ class ItemAdapter(
     class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
         val imageView: ImageView = view.findViewById(R.id.item_image)
+        val textView2: TextView = view.findViewById(R.id.item_description)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -34,6 +35,7 @@ class ItemAdapter(
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
         holder.imageView.setImageResource(item.imageResourceId)
+        holder.textView2.text = context.resources.getString(item.stringResourceId2)
     }
 
     override fun getItemCount() = dataset.size

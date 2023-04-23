@@ -8,8 +8,6 @@ import com.example.movierecommendation.data.Datasource
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-//        val check : TextView = findViewById(R.id.textView)
-//        check.text = Datasource().loadAffirmations().size.toString()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val myDataset = Datasource().loadMovieCards()

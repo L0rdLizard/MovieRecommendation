@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Movie Recommendation</string>
-    <string name="movieDima">Как не сойти с ума</string>
     <string name="movie_brat">БРАТ</string>
+    <string name="movie_brat2">БРАТ 2</string>
+    <string name="movie_brat3">БРАТ 3</string>
+    <string name="movie_brat4">БРАТ 4</string>
+    <string name="movie_brat5">БРАТ 5</string>
+    <string name="movie_brat6">БРАТ 6</string>
+    <string name="movie_brat7">БРАТ 7</string>
+    <string name="movie_brat8">БРАТ 8</string>
+    <string name="movie_brat9">БРАТ 9</string>
+
     <string name="movie_brat_description">Дембель Данила Багров защищает слабых в Петербурге 1990-х. Фильм, сделавший Сергея Бодрова народным героем</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -26,7 +26,8 @@
                 android:layout_height="29dp"
                 android:textAlignment="center"
                 android:textColor="#F1EEEE"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:text="@string/title_placeholder"/>
 
             <TextView
                 android:id="@+id/item_description"

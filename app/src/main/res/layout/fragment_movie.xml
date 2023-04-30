@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray_background"
     android:padding="5dp"
-    tools:context=".MovieFragment">
+    tools:context="com.example.movierecommendation.MainActivity">
 
 
     <LinearLayout
@@ -15,21 +15,21 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/sportsImageDetail"
             android:layout_width="match_parent"
             android:layout_height="301dp"
             android:background="@color/gray_background"
             android:src="@drawable/movie_brat" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/titleDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"

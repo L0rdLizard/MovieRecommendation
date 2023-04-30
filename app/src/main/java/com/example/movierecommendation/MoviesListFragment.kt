@@ -19,7 +19,7 @@ import com.example.movierecommendation.databinding.FragmentMovieListBinding
 
 class MoviesListFragment : Fragment() {
 
-    private val sportsViewModel: MoviesViewModel by activityViewModels()
+    private val moviesViewModel: MoviesViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,14 +40,14 @@ class MoviesListFragment : Fragment() {
         val adapter = MovieAdapter {
             // Update the user selected sport as the current sport in the shared viewmodel
             // This will automatically update the dual pane content
-            sportsViewModel.updateCurrentSport(it)
+            moviesViewModel.updateCurrentSport(it)
             // Navigate to the details screen
 //            val action = SportsListFragmentDirections.actionSportsListFragmentToNewsFragment()
 //            this.findNavController().navigate(action)
             binding.slidingPaneLayout.openPane()
         }
         binding.recyclerView.adapter = adapter
-        adapter.submitList(sportsViewModel.sportsData)
+        adapter.submitList(moviesViewModel.moviesData)
     }
 
 }

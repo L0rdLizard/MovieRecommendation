@@ -3,20 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/sportsListFragment">
+    app:startDestination="@id/moviesListFragment">
+
 
     <fragment
-        android:id="@+id/sportsListFragment"
+        android:id="@+id/moviesListFragment"
         android:name="com.example.movierecommendation.MoviesListFragment"
         android:label="fragment_movie_list"
         tools:layout="@layout/fragment_movie_list" >
         <action
-            android:id="@+id/action_sportsListFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
+            android:id="@+id/action_moviesListFragment_to_descriptionDetailsFragment"
+            app:destination="@id/descriptionDetailsFragment" />
     </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.movierecommendation.MainActivity"
-        android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
+
+    <fragment
+        android:id="@+id/descriptionDetailsFragment"
+        android:name="com.example.movierecommendation.DescriptionDetailsFragment"
+        android:label="DescriptionDetailsFragment"
+        tools:layout="@layout/fragment_movie"/>
 </navigation>

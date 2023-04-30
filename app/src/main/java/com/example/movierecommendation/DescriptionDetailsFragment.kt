@@ -45,8 +45,9 @@ class DescriptionDetailsFragment : Fragment() {
 
         moviesViewModel.currentMovie.observe(this.viewLifecycleOwner) {
             binding.titleDetail.text = getString(it.stringResourceId)
-            binding.sportsImageDetail.load(it.imageResourceId)
+            binding.moviesImageDetail.load(it.imageResourceId)
             binding.description.text = getString(it.stringResourceId2)
         }
+
     }
 }

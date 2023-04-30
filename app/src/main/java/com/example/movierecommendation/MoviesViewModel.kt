@@ -14,7 +14,7 @@ class MoviesViewModel : ViewModel() {
         get() = _currentMovie
 
     private var _moviesData: ArrayList<MovieCard> = ArrayList()
-    val sportsData: ArrayList<MovieCard>
+    val moviesData: ArrayList<MovieCard>
         get() = _moviesData
 
     init {

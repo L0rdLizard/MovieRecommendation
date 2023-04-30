@@ -41,6 +41,7 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         val current = getItem(position)
         holder.itemView.setOnClickListener {
+            println(current)
             onItemClicked(current)
         }
         holder.bind(current, context)

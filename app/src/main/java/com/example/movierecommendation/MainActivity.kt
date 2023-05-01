@@ -10,6 +10,8 @@ package com.example.movierecommendation
 //import com.example.movierecommendation.data.Datasource
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -50,5 +52,8 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+    fun onMyButtonClick(view: View?) {
+        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
     }
 }

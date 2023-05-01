@@ -21,7 +21,7 @@
         android:id="@+id/detail_container"
         android:layout_width="300dp"
         android:layout_weight="1"
-        android:layout_height="match_parent" />
-<!--        android:name="com.example.android.sports.NewsDetailsFragment"-->
+        android:layout_height="match_parent"
+        android:name="com.example.movierecommendation.DescriptionDetailsFragment"/>
 
 </androidx.slidingpanelayout.widget.SlidingPaneLayout>

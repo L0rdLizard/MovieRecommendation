@@ -21,7 +21,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton5"
+        android:id="@+id/addButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="40dp"
@@ -32,7 +32,8 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:onClick="onMyButtonClick"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

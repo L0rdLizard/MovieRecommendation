@@ -30,6 +30,8 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
         parent: ViewGroup,
         viewType: Int
     ): MoviesViewHolder {
+        println("okokokok123")
+        println(parent.context)
         context = parent.context
         return MoviesViewHolder(
             ListItem4Binding.inflate(

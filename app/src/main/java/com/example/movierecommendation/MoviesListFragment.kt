@@ -42,8 +42,8 @@ class MoviesListFragment : Fragment() {
             // This will automatically update the dual pane content
             moviesViewModel.updateCurrentSport(it)
             // Navigate to the details screen
-//            val action = SportsListFragmentDirections.actionSportsListFragmentToNewsFragment()
-//            this.findNavController().navigate(action)
+            val action = MoviesListFragmentDirections.actionMoviesListFragmentToDescriptionDetailsFragment()
+            this.findNavController().navigate(action)
             binding.slidingPaneLayout.openPane()
         }
         binding.recyclerView.adapter = adapter

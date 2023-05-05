@@ -4,8 +4,13 @@ package com.example.movierecommendation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.movierecommendation.data.Datasource
 import com.example.movierecommendation.module.MovieCard
+import com.example.movierecommendation.network.kinopoiskAPI
+import com.example.movierecommendation.network.ParseMovie
+import com.example.movierecommendation.network.objKinopoiskAPI
+import kotlinx.coroutines.launch
 
 class MoviesViewModel : ViewModel() {
 
@@ -18,11 +23,25 @@ class MoviesViewModel : ViewModel() {
         get() = _moviesData
 
     init {
+        getMovie()
         // Initialize the sports data.
         _moviesData = Datasource().loadMovieCards()
         _currentMovie.value = _moviesData[0]
     }
 
+    private val _status = MutableLiveData<String>()
+
+    val status: LiveData<String> = _status
+    private fun getMovie() {
+        viewModelScope.launch {
+            try {
+                val listResult = objKinopoiskAPI.retrofitService.getMovie()
+                _status.value = "Success: ${listResult.kinopoiskId} "
+            } catch (e: Exception) {
+                _status.value = "Failure: ${e.message}"
+            }
+        }
+    }
     fun updateCurrentSport(sport: MovieCard) {
         _currentMovie.value = sport
     }

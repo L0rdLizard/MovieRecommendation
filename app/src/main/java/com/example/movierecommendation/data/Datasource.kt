@@ -1,5 +1,6 @@
 package com.example.movierecommendation.data
 
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.movierecommendation.R
 import com.example.movierecommendation.module.MovieCard
@@ -9,13 +10,18 @@ import kotlinx.coroutines.launch
 class Datasource {
 
     private var movies = ArrayList<MovieCard>()
-    suspend fun addNewMovie(id: String) {
-            try {
-                val result = objKinopoiskAPI.retrofitService.getMovie(id)
-                movies.add(result)
-            } catch (e: Exception) {
 
-            }
+    fun addNewMovie(id: String) = liveData<MovieCard> {
+        try {
+            val result = objKinopoiskAPI.retrofitService.getMovie(id)
+            movies.add(result)
+        } catch (e: Exception) {
+
+        }
+    }
+
+    fun loadMovieCards() :ArrayList<MovieCard>{
+        return movies
     }
 //    fun loadMovieCards() :ArrayList<MovieCard>{
 //        return arrayListOf<MovieCard>(

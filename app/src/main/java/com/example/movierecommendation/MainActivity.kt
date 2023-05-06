@@ -19,6 +19,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.movierecommendation.databinding.ActivityMainBinding
+import com.example.movierecommendation.MoviesViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,6 +55,6 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
     fun onMyButtonClick(view: View?) {
-        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
     }
 }

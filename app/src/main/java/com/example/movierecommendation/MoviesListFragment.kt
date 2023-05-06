@@ -40,7 +40,7 @@ class MoviesListFragment : Fragment() {
         val adapter = MovieAdapter {
             // Update the user selected sport as the current sport in the shared viewmodel
             // This will automatically update the dual pane content
-            moviesViewModel.updateCurrentSport(it)
+            moviesViewModel.updateCurrentMovie(it)
             // Navigate to the details screen
             val action = MoviesListFragmentDirections.actionMoviesListFragmentToDescriptionDetailsFragment()
             this.findNavController().navigate(action)

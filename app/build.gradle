@@ -49,6 +49,7 @@ dependencies {
     implementation "androidx.slidingpanelayout:slidingpanelayout:1.2.0-rc01"
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 //    implementation 'androidx.core:core-ktx:+'
 //    implementation 'androidx.core:core-ktx:+'
     testImplementation 'junit:junit:4.13.2'

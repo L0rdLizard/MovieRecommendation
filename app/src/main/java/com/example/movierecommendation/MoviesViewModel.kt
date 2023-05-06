@@ -24,26 +24,26 @@ class MoviesViewModel : ViewModel() {
         get() = _moviesData
 
     init {
-        getMovie("301")
-        // Initialize the sports data.
+//        getMovie("301")
+        // Initialize the movie data.
         _moviesData = Datasource().loadMovieCards()
         _currentMovie.value = _moviesData[0]
     }
 
-    private val _status = MutableLiveData<String>()
-
-    val status: LiveData<String> = _status
-    private fun getMovie(id: String) {
-        viewModelScope.launch {
-            try {
-                val listResult = objKinopoiskAPI.retrofitService.getMovie(id)
-                _status.value = "Success: ${listResult.kinopoiskId} "
-            } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
-            }
-        }
-    }
-    fun updateCurrentSport(sport: MovieCard) {
-        _currentMovie.value = sport
+//    private val _status = MutableLiveData<String>()
+//
+//    val status: LiveData<String> = _status
+//    fun getMovie(id: String) {
+//        viewModelScope.launch {
+//            try {
+//                val listResult = objKinopoiskAPI.retrofitService.getMovie(id)
+//                _status.value = "Success: ${listResult.kinopoiskId} "
+//            } catch (e: Exception) {
+//                _status.value = "Failure: ${e.message}"
+//            }
+//        }
+//    }
+    fun updateCurrentMovie(movie: MovieCard) {
+        _currentMovie.value = movie
     }
 }

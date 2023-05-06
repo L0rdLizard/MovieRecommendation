@@ -4,12 +4,15 @@ package com.example.movierecommendation.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.movierecommendation.databinding.ListItem4Binding
 import com.example.movierecommendation.module.MovieCard
+import com.example.movierecommendation.network.objKinopoiskAPI
+import kotlinx.coroutines.launch
 
 class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
     ListAdapter<MovieCard, MovieAdapter.MoviesViewHolder>(DiffCallback) {

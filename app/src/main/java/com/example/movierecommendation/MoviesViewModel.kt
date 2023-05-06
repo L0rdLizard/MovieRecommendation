@@ -11,6 +11,7 @@ import com.example.movierecommendation.network.kinopoiskAPI
 import com.example.movierecommendation.network.ParseMovie
 import com.example.movierecommendation.network.objKinopoiskAPI
 import kotlinx.coroutines.launch
+import retrofit2.http.Path
 
 class MoviesViewModel : ViewModel() {
 
@@ -23,7 +24,7 @@ class MoviesViewModel : ViewModel() {
         get() = _moviesData
 
     init {
-        getMovie()
+        getMovie("301")
         // Initialize the sports data.
         _moviesData = Datasource().loadMovieCards()
         _currentMovie.value = _moviesData[0]
@@ -32,10 +33,10 @@ class MoviesViewModel : ViewModel() {
     private val _status = MutableLiveData<String>()
 
     val status: LiveData<String> = _status
-    private fun getMovie() {
+    private fun getMovie(id: String) {
         viewModelScope.launch {
             try {
-                val listResult = objKinopoiskAPI.retrofitService.getMovie()
+                val listResult = objKinopoiskAPI.retrofitService.getMovie(id)
                 _status.value = "Success: ${listResult.kinopoiskId} "
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"

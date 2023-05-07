@@ -27,8 +27,8 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
 //            binding.itemTitle.text = context.getString(movie.stringResourceId)
 //            binding.itemDescription.text = context.getString(movie.stringResourceId2)
 //            binding.itemImage.load(movie.imageResourceId)
-            binding.itemTitle.text = context.getString(movie.nameRu)
-            binding.itemDescription.text = context.getString(movie.shortDescription)
+            binding.itemTitle.text = context.getString(movie.nameRu.toInt())
+            binding.itemDescription.text = context.getString(movie.shortDescription.toInt())
             binding.itemImage.load(R.drawable.movie_brat)
         }
     }
@@ -62,8 +62,8 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
 //                return (oldItem.stringResourceId == newItem.stringResourceId ||
 //                        oldItem.stringResourceId2 == newItem.stringResourceId2
 //                        )
-                return (oldItem.nameRu == newItem.nameRu ||
-                        oldItem.shortDescription == newItem.shortDescription
+                return (oldItem.nameRu.toInt() == newItem.nameRu.toInt() ||
+                        oldItem.shortDescription.toInt() == newItem.shortDescription.toInt()
                         )
             }
 

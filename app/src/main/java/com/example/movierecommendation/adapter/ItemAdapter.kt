@@ -36,9 +36,9 @@ class ItemAdapter(
 //        holder.textView.text = context.resources.getString(item.stringResourceId)
 //        holder.imageView.setImageResource(item.imageResourceId)
 //        holder.textView2.text = context.resources.getString(item.stringResourceId2)
-        holder.textView.text = context.resources.getString(item.nameRu)
+        holder.textView.text = context.resources.getString(item.nameRu.toInt())
         holder.imageView.setImageResource(R.drawable.movie_brat)
-        holder.textView2.text = context.resources.getString(item.shortDescription)
+        holder.textView2.text = context.resources.getString(item.shortDescription.toInt())
     }
 
     override fun getItemCount() = dataset.size

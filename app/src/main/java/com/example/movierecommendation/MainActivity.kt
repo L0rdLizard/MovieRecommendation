@@ -21,6 +21,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.movierecommendation.databinding.ActivityMainBinding
 import com.example.movierecommendation.MoviesViewModel
 import com.example.movierecommendation.data.Datasource
+import com.example.movierecommendation.network.kinopoiskAPI
+import com.example.movierecommendation.network.objKinopoiskAPI
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +63,9 @@ class MainActivity : AppCompatActivity() {
     }
     fun onMyButtonClick(view: View?) {
 //        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
-        movieList.addNewMovie("301")
+//        movieList.addNewMovie("301")
+        CoroutineScope(Dispatchers.Main).launch {
+            println(objKinopoiskAPI.retrofitService.getMovie("301"))
+        }
     }
 }

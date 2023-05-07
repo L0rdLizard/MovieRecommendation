@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.movierecommendation.R
 import com.example.movierecommendation.module.MovieCard
 import com.example.movierecommendation.network.objKinopoiskAPI
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class Datasource {
@@ -16,13 +18,26 @@ class Datasource {
     public fun addNewMovie(id: String) = liveData<MovieCard> {
         try {
             val result = objKinopoiskAPI.retrofitService.getMovie(id)
-            println("Test 1111111111111111111111111111111111111111111")
-            println(result)
+            println("addNewMovie result: ")
+            println(result.toString())
             movies.add(result)
         } catch (e: Exception) {
             println("444444444444444444444${e.message}")
         }
     }
+
+//    public fun addNewMovie(id: String) {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            try {
+//                val result = objKinopoiskAPI.retrofitService.getMovie("301")
+//                println("addNewMovie result: ")
+//                println(result.toString())
+//                movies.add(result)
+//            } catch (e: Exception) {
+//                println("444444444444444444444${e.message}")
+//            }
+//        }
+//    }
 
     fun loadMovieCards() :ArrayList<MovieCard>{
         return movies

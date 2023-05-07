@@ -17,7 +17,7 @@ import retrofit2.http.Path
 class MoviesViewModel : ViewModel() {
 
     private var _currentMovie: MutableLiveData<MovieCard> = MutableLiveData<MovieCard>()
-    private val movieList :Datasource = Datasource()
+//    private val movieList = Datasource()
     val currentMovie: LiveData<MovieCard>
         get() = _currentMovie
 
@@ -26,6 +26,7 @@ class MoviesViewModel : ViewModel() {
         get() = _moviesData
 
     init {
+        val movieList = Datasource()
         // Initialize the movie data.
         movieList.addNewMovie("301")
 //        _moviesData = Datasource().loadMovieCards()

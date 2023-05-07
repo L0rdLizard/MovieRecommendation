@@ -19,14 +19,21 @@ private val moshi = Moshi.Builder()
     .build()
 private val retrofit = Retrofit.Builder().addConverterFactory(MoshiConverterFactory.create(moshi)).baseUrl(BASE_URL).build()
 
+//interface kinopoiskAPI {
+//    @Headers("X-API-KEY: 74ba82e9-9bfc-42fe-90db-8c0981affdae")
+////    @GET("v2.2/films/{id}")
+//    @GET("https://kinopoiskapiunofficial.tech/api/v2.2/films/{movieId}")
+////    suspend fun getMovie(): ParseMovie
+//    suspend fun getMovie(@Path("movieId") kinoposikId: String) : MovieCard
+//
+//    @GET("v2.2/films/{id}/similars")
+//    suspend fun getSimilars(@Path("id") kinoposikId: String) : List<MovieCard>
+//}
+
 interface kinopoiskAPI {
     @Headers("X-API-KEY: 74ba82e9-9bfc-42fe-90db-8c0981affdae")
-    @GET("v2.2/films/{id}")
-//    suspend fun getMovie(): ParseMovie
+    @GET("https://kinopoiskapiunofficial.tech/api/v2.2/films/{movieId}")
     suspend fun getMovie(@Path("movieId") kinoposikId: String) : MovieCard
-
-    @GET("v2.2/films/{id}/similars")
-    suspend fun getSimilars(@Path("movieId") kinoposikId: String) : List<ParseMovie>
 }
 
 object objKinopoiskAPI {

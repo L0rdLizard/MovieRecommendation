@@ -12,8 +12,8 @@ import com.squareup.moshi.Json
 //    val imageResourceId : Int,
 //    val stringResourceId2 : Int)
 
-data class MovieCard(val nameRu : String,
+data class MovieCard(val nameRu : Int,
                      val kinopoiskId: Int,
-                     val shortDescription : String,
+                     val shortDescription : Int,
                      @Json(name = "posterUrlPreview") val posterUrlPreview: String) {
 }

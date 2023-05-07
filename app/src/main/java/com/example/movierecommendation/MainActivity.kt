@@ -20,6 +20,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.movierecommendation.databinding.ActivityMainBinding
 import com.example.movierecommendation.MoviesViewModel
+import com.example.movierecommendation.data.Datasource
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    val movieList = Datasource()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,5 +58,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun onMyButtonClick(view: View?) {
 //        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
+        movieList.addNewMovie("301")
     }
 }

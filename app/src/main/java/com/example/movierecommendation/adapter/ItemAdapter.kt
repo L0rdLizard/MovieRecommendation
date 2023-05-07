@@ -33,9 +33,12 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.stringResourceId)
-        holder.imageView.setImageResource(item.imageResourceId)
-        holder.textView2.text = context.resources.getString(item.stringResourceId2)
+//        holder.textView.text = context.resources.getString(item.stringResourceId)
+//        holder.imageView.setImageResource(item.imageResourceId)
+//        holder.textView2.text = context.resources.getString(item.stringResourceId2)
+        holder.textView.text = context.resources.getString(item.nameRu)
+        holder.imageView.setImageResource(R.drawable.movie_brat)
+        holder.textView2.text = context.resources.getString(item.shortDescription)
     }
 
     override fun getItemCount() = dataset.size

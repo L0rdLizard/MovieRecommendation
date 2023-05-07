@@ -28,9 +28,12 @@ class DescriptionDetailsFragment : Fragment() {
         val binding = FragmentMovieBinding.bind(view)
 
         moviesViewModel.currentMovie.observe(this.viewLifecycleOwner) {
-            binding.titleDetail.text = getString(it.stringResourceId)
-            binding.moviesImageDetail.load(it.imageResourceId)
-            binding.description.text = getString(it.stringResourceId2)
+//            binding.titleDetail.text = getString(it.stringResourceId)
+//            binding.moviesImageDetail.load(it.imageResourceId)
+//            binding.description.text = getString(it.stringResourceId2)
+            binding.titleDetail.text = getString(it.nameRu)
+            binding.moviesImageDetail.load(R.drawable.movie_brat)
+            binding.description.text = getString(it.shortDescription)
         }
 
     }

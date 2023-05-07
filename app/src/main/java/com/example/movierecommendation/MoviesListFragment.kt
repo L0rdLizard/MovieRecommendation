@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.slidingpanelayout.widget.SlidingPaneLayout
 import com.example.movierecommendation.adapter.ItemAdapter
 import com.example.movierecommendation.adapter.MovieAdapter
+import com.example.movierecommendation.data.Datasource
 import com.example.movierecommendation.databinding.FragmentMovieListBinding
 
 /**

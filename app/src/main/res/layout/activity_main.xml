@@ -32,8 +32,8 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        android:onClick="onMyButtonClick"/>
+        tools:ignore="MissingConstraints"/>
+<!--        android:onClick="onMyButtonClick"-->
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"

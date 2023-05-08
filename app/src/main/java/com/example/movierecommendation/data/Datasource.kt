@@ -1,10 +1,7 @@
 package com.example.movierecommendation.data
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.viewModelScope
-import com.example.movierecommendation.R
 import com.example.movierecommendation.module.MovieCard
+import com.example.movierecommendation.network.RestApiService
 import com.example.movierecommendation.network.objKinopoiskAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,29 +12,38 @@ class Datasource {
     private var movies = ArrayList<MovieCard>()
 
 //    private var movies :MutableLiveData<ArrayList<MovieCard>> = MutableLiveData()
-    public fun addNewMovie(id: String) = liveData<MovieCard> {
-        try {
-            val result = objKinopoiskAPI.retrofitService.getMovie(id)
-            println("addNewMovie result: ")
-            println(result.toString())
-            movies.add(result)
-        } catch (e: Exception) {
-            println("444444444444444444444${e.message}")
-        }
-    }
+//    public fun addNewMovie(id: String) = liveData<MovieCard> {
+//    println("ппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппппп")
+//        try {
+//            val result = objKinopoiskAPI.retrofitService.getMovie(id)
+//            println("addNewMovie result: ")
+//            println(result.toString())
+//            movies.add(result)
+//        } catch (e: Exception) {
+//            println("444444444444444444444${e.message}")
+//        }
+//    }
 
-//    public fun addNewMovie(id: String) {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            try {
-//                val result = objKinopoiskAPI.retrofitService.getMovie("301")
+    fun addNewMovie(id: Int) {
+            try {
+                val apiService = RestApiService()
+                apiService.getMovie(id){
+                    if (it?.kinopoiskId != null) {
+                        println("ura pobeda")
+                        println(it.toString())
+                        movies.add(it)
+                    }
+                }
+
+//                val result = objKinopoiskAPI.retrofitService.getMovie(id)
 //                println("addNewMovie result: ")
 //                println(result.toString())
 //                movies.add(result)
-//            } catch (e: Exception) {
-//                println("444444444444444444444${e.message}")
-//            }
-//        }
-//    }
+//                println(movies)
+            } catch (e: Exception) {
+                println("444444444444444444444${e.message}")
+            }
+    }
 
     fun loadMovieCards() :ArrayList<MovieCard>{
         return movies

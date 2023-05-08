@@ -11,6 +11,7 @@ package com.example.movierecommendation
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -18,14 +19,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.example.movierecommendation.databinding.ActivityMainBinding
-import com.example.movierecommendation.MoviesViewModel
 import com.example.movierecommendation.data.Datasource
-import com.example.movierecommendation.network.kinopoiskAPI
-import com.example.movierecommendation.network.objKinopoiskAPI
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.movierecommendation.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -61,11 +56,14 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
-    fun onMyButtonClick(view: View?) {
+//    fun onMyButtonClick(view: View?) {
 //        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
-//        movieList.addNewMovie("301")
-        CoroutineScope(Dispatchers.Main).launch {
-            println(objKinopoiskAPI.retrofitService.getMovie("301"))
-        }
-    }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            movieList.addNewMovie(301)
+//        }
+//        CoroutineScope(Dispatchers.Main).launch {
+//            println(objKinopoiskAPI.retrofitService.getMovie("301"))
+//        }
+
+//    }
 }

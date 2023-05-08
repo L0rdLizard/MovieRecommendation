@@ -1,18 +1,21 @@
 package com.example.movierecommendation
 
+
+import android.R.attr.button
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.slidingpanelayout.widget.SlidingPaneLayout
-import com.example.movierecommendation.adapter.ItemAdapter
 import com.example.movierecommendation.adapter.MovieAdapter
-import com.example.movierecommendation.data.Datasource
 import com.example.movierecommendation.databinding.FragmentMovieListBinding
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -21,9 +24,12 @@ import com.example.movierecommendation.databinding.FragmentMovieListBinding
 class MoviesListFragment : Fragment() {
 
     private val moviesViewModel: MoviesViewModel by activityViewModels()
+    private lateinit var adapter: MovieAdapter
+    private val addButton : Button? = view?.findViewById(R.id.addButton)
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return FragmentMovieListBinding.inflate(inflater, container, false).root
@@ -35,10 +41,9 @@ class MoviesListFragment : Fragment() {
         val slidingPaneLayout = binding.slidingPaneLayout
         slidingPaneLayout.lockMode = SlidingPaneLayout.LOCK_MODE_LOCKED
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
-            SportsListOnBackPressedCallback(slidingPaneLayout))
-
+            MovieListOnBackPressedCallback(slidingPaneLayout))
         // Initialize the adapter and set it to the RecyclerView.
-        val adapter = MovieAdapter {
+        adapter = MovieAdapter {
             // Update the user selected sport as the current sport in the shared viewmodel
             // This will automatically update the dual pane content
             moviesViewModel.updateCurrentMovie(it)
@@ -49,11 +54,26 @@ class MoviesListFragment : Fragment() {
         }
         binding.recyclerView.adapter = adapter
         adapter.submitList(moviesViewModel.moviesData)
+
+//        addButton = view.findViewById<Button>(R.id.addButton)
+//        addButton?.setOnClickListener{
+//            println("ggggggggggggggggggggggggggggggg")
+//        }
+
+        addButton?.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                println("ggggggggggggggggggggggggggggggg")
+            }
+
+        })
+
+//        addButton = view.findViewById(R.id.addButton)
+//        addButton.setOnClickListener{
+//            println("ggggggggggggggggggggggggggggggg")
+//        }
     }
-
 }
-
-class SportsListOnBackPressedCallback (private val slidingPaneLayout : SlidingPaneLayout)
+class MovieListOnBackPressedCallback (private val slidingPaneLayout : SlidingPaneLayout)
     :OnBackPressedCallback(slidingPaneLayout.isSlideable && slidingPaneLayout.isOpen),
     SlidingPaneLayout.PanelSlideListener{
     init{

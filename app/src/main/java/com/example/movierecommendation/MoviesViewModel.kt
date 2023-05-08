@@ -4,15 +4,8 @@ package com.example.movierecommendation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.movierecommendation.data.Datasource
 import com.example.movierecommendation.module.MovieCard
-import com.example.movierecommendation.MainActivity
-import com.example.movierecommendation.network.kinopoiskAPI
-import com.example.movierecommendation.network.ParseMovie
-import com.example.movierecommendation.network.objKinopoiskAPI
-import kotlinx.coroutines.launch
-import retrofit2.http.Path
 
 class MoviesViewModel : ViewModel() {
 
@@ -28,12 +21,32 @@ class MoviesViewModel : ViewModel() {
     init {
         val movieList = Datasource()
         // Initialize the movie data.
-        movieList.addNewMovie("301")
+//        CoroutineScope(Dispatchers.Main).launch {
+//            movieList.addNewMovie("301")
+//            movieList.addNewMovie("302")
+//            movieList.addNewMovie("303")
+//
+////        _moviesData = Datasource().loadMovieCards()
+//            _moviesData = movieList.loadMovieCards()
+//            println("Test 1111111111111111111111111111111111111111111")
+//            println(movieList.loadMovieCards())
+//            println(_moviesData)
+//
+//            if (_moviesData.size != 0) {
+//                println("all is ok1111111111111111111111111111111111111111111")
+//                _currentMovie.value = _moviesData[0]
+//            }
+//        }
+        movieList.addNewMovie(301)
+        movieList.addNewMovie(302)
+        movieList.addNewMovie(303)
+
 //        _moviesData = Datasource().loadMovieCards()
         _moviesData = movieList.loadMovieCards()
         println("Test 1111111111111111111111111111111111111111111")
         println(movieList.loadMovieCards())
         println(_moviesData)
+
         if (_moviesData.size != 0) {
             println("all is ok1111111111111111111111111111111111111111111")
             _currentMovie.value = _moviesData[0]

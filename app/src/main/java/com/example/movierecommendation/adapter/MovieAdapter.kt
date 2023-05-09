@@ -24,6 +24,7 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: MovieCard, context:Context) {
+            println("!!!!!!!!!!!!!!!!!!!!!!!!MovieAdapter is working")
 //            binding.itemTitle.text = context.getString(movie.stringResourceId)
 //            binding.itemDescription.text = context.getString(movie.stringResourceId2)
 //            binding.itemImage.load(movie.imageResourceId)
@@ -37,7 +38,7 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
         parent: ViewGroup,
         viewType: Int
     ): MoviesViewHolder {
-        println("okokokok123")
+
 //        println(parent.context)
         context = parent.context
         return MoviesViewHolder(

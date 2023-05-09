@@ -24,8 +24,8 @@ import com.example.movierecommendation.databinding.FragmentMovieListBinding
 class MoviesListFragment : Fragment() {
 
     private val moviesViewModel: MoviesViewModel by activityViewModels()
-    private lateinit var adapter: MovieAdapter
-    private val addButton : Button? = view?.findViewById(R.id.addButton)
+//    private lateinit var adapter: MovieAdapter
+//    private val addButton : Button? = view?.findViewById(R.id.addButton)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +43,8 @@ class MoviesListFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
             MovieListOnBackPressedCallback(slidingPaneLayout))
         // Initialize the adapter and set it to the RecyclerView.
-        adapter = MovieAdapter {
+        val adapter = MovieAdapter {
+            println("create adapter int MovieListFragment")
             // Update the user selected sport as the current sport in the shared viewmodel
             // This will automatically update the dual pane content
             moviesViewModel.updateCurrentMovie(it)
@@ -60,12 +61,12 @@ class MoviesListFragment : Fragment() {
 //            println("ggggggggggggggggggggggggggggggg")
 //        }
 
-        addButton?.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                println("ggggggggggggggggggggggggggggggg")
-            }
-
-        })
+//        addButton?.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(view: View?) {
+//                println("ggggggggggggggggggggggggggggggg")
+//            }
+//
+//        })
 
 //        addButton = view.findViewById(R.id.addButton)
 //        addButton.setOnClickListener{

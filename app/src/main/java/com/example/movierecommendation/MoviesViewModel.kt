@@ -6,6 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movierecommendation.data.Datasource
 import com.example.movierecommendation.module.MovieCard
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MoviesViewModel : ViewModel() {
 
@@ -21,36 +24,38 @@ class MoviesViewModel : ViewModel() {
     init {
         val movieList = Datasource()
         // Initialize the movie data.
-//        CoroutineScope(Dispatchers.Main).launch {
-//            movieList.addNewMovie("301")
-//            movieList.addNewMovie("302")
-//            movieList.addNewMovie("303")
-//
-////        _moviesData = Datasource().loadMovieCards()
-//            _moviesData = movieList.loadMovieCards()
-//            println("Test 1111111111111111111111111111111111111111111")
-//            println(movieList.loadMovieCards())
-//            println(_moviesData)
-//
-//            if (_moviesData.size != 0) {
-//                println("all is ok1111111111111111111111111111111111111111111")
-//                _currentMovie.value = _moviesData[0]
-//            }
-//        }
-        movieList.addNewMovie(301)
-        movieList.addNewMovie(302)
-        movieList.addNewMovie(303)
+        CoroutineScope(Dispatchers.IO).launch {
+            movieList.addNewMovie(301)
+            movieList.addNewMovie(302)
+            movieList.addNewMovie(303)
 
 //        _moviesData = Datasource().loadMovieCards()
-        _moviesData = movieList.loadMovieCards()
-        println("Test 1111111111111111111111111111111111111111111")
-        println(movieList.loadMovieCards())
-        println(_moviesData)
+            _moviesData = movieList.loadMovieCards()
+            println("Test 1111111111111111111111111111111111111111111")
+            println(movieList.loadMovieCards())
+            println(_moviesData)
 
-        if (_moviesData.size != 0) {
-            println("all is ok1111111111111111111111111111111111111111111")
-            _currentMovie.value = _moviesData[0]
+            if (_moviesData.size != 0) {
+                println("all is ok1111111111111111111111111111111111111111111")
+//                _currentMovie.value = _moviesData[0]
+                _currentMovie.postValue(_moviesData[0])
+                println(_moviesData[0])
+            }
         }
+//        movieList.addNewMovie(301)
+//        movieList.addNewMovie(302)
+//        movieList.addNewMovie(303)
+//
+////        _moviesData = Datasource().loadMovieCards()
+//        _moviesData = movieList.loadMovieCards()
+//        println("Test 1111111111111111111111111111111111111111111")
+//        println(movieList.loadMovieCards())
+//        println(_moviesData)
+//
+//        if (_moviesData.size != 0) {
+//            println("all is ok1111111111111111111111111111111111111111111")
+//            _currentMovie.value = _moviesData[0]
+//        }
     }
 
 //    private val _status = MutableLiveData<String>()

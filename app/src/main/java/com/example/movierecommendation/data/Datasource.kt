@@ -1,7 +1,7 @@
 package com.example.movierecommendation.data
 
 import com.example.movierecommendation.module.MovieCard
-import com.example.movierecommendation.network.RestApiService
+//import com.example.movierecommendation.network.RestApiService
 import com.example.movierecommendation.network.objKinopoiskAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,28 +24,27 @@ class Datasource {
 //        }
 //    }
 
-    fun addNewMovie(id: Int) {
-            try {
-                val apiService = RestApiService()
-                apiService.getMovie(id){
-                    if (it?.kinopoiskId != null) {
-                        println("ura pobeda")
-                        println(it.toString())
-                        movies.add(it)
-                    }
-                }
-
-//                val result = objKinopoiskAPI.retrofitService.getMovie(id)
-//                println("addNewMovie result: ")
-//                println(result.toString())
-//                movies.add(result)
-//                println(movies)
-            } catch (e: Exception) {
-                println("444444444444444444444${e.message}")
-            }
+    suspend fun addNewMovie(id: Int) {
+        try {
+//                val apiService = RestApiService()
+//                apiService.getMovie(id){
+//                    if (it?.kinopoiskId != null) {
+//                        println("ura pobeda")
+//                        println(it.toString())
+//                        movies.add(it)
+//                    }
+//                }
+            val result = objKinopoiskAPI.retrofitService.getMovie(id)
+            println("addNewMovie result: ")
+            println(result.toString())
+            movies.add(result)
+            println(movies)
+        } catch (e: Exception) {
+            println("444444444444444444444${e.message}")
+        }
     }
 
-    fun loadMovieCards() :ArrayList<MovieCard>{
+    fun loadMovieCards(): ArrayList<MovieCard> {
         return movies
     }
 //    fun loadMovieCards() :ArrayList<MovieCard>{

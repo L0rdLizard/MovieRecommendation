@@ -24,7 +24,7 @@ class MoviesViewModel : ViewModel() {
     init {
         val movieList = Datasource()
         // Initialize the movie data.
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             movieList.addNewMovie(301)
             movieList.addNewMovie(302)
             movieList.addNewMovie(303)
@@ -42,6 +42,7 @@ class MoviesViewModel : ViewModel() {
                 println(_moviesData[0])
             }
         }
+
 //        movieList.addNewMovie(301)
 //        movieList.addNewMovie(302)
 //        movieList.addNewMovie(303)

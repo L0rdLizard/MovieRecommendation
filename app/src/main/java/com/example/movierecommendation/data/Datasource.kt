@@ -25,7 +25,8 @@ class Datasource {
 //    }
 
     suspend fun addNewMovie(id: Int) {
-        try {
+//        CoroutineScope(Dispatchers.Main).launch {
+            try {
 //                val apiService = RestApiService()
 //                apiService.getMovie(id){
 //                    if (it?.kinopoiskId != null) {
@@ -34,14 +35,15 @@ class Datasource {
 //                        movies.add(it)
 //                    }
 //                }
-            val result = objKinopoiskAPI.retrofitService.getMovie(id)
-            println("addNewMovie result: ")
-            println(result.toString())
-            movies.add(result)
-            println(movies)
-        } catch (e: Exception) {
-            println("444444444444444444444${e.message}")
-        }
+                val result = objKinopoiskAPI.retrofitService.getMovie(id)
+                println("addNewMovie number $id result: ")
+                println(result.toString())
+                movies.add(result)
+                println(movies)
+            } catch (e: Exception) {
+                println("444444444444444444444${e.message}")
+            }
+//        }
     }
 
     fun loadMovieCards(): ArrayList<MovieCard> {

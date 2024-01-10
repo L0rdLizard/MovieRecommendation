@@ -11,6 +11,7 @@
         android:name="com.example.movierecommendation.MoviesListFragment"
         android:label="Recommendations"
         tools:layout="@layout/fragment_movie_list" >
+<!--        tools:layout="@layout/fragment_movie_list" >-->
         <action
             android:id="@+id/action_moviesListFragment_to_descriptionDetailsFragment"
             app:destination="@id/descriptionDetailsFragment" />

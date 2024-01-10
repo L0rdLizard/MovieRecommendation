@@ -25,6 +25,7 @@ class MoviesViewModel : ViewModel() {
         val movieList = Datasource()
         // Initialize the movie data.
         CoroutineScope(Dispatchers.Main).launch {
+//            Thread.sleep(8000)
             movieList.addNewMovie(301)
             movieList.addNewMovie(302)
             movieList.addNewMovie(303)
@@ -74,5 +75,6 @@ class MoviesViewModel : ViewModel() {
 //    }
     fun updateCurrentMovie(movie: MovieCard) {
         _currentMovie.value = movie
+
     }
 }

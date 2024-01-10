@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.movierecommendation.MoviesListFragment
 import com.example.movierecommendation.R
 import com.example.movierecommendation.databinding.ListItem4Binding
 import com.example.movierecommendation.module.MovieCard

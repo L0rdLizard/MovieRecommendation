@@ -43,7 +43,6 @@ class MoviesListFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMovieListBinding.bind(view)
         val recyclerViewVal = binding.recyclerView
@@ -53,8 +52,8 @@ class MoviesListFragment : Fragment() {
             MovieListOnBackPressedCallback(slidingPaneLayout))
         // Initialize the adapter and set it to the RecyclerView.
         val adapter = MovieAdapter {
-            println("!!!!!!!!!!!!!!!!!!create adapter int MovieListFragment")
-            // Update the user selected sport as the current sport in the shared viewmodel
+            println("!!!!!!!!!!!!!!!!!!create adapter in MovieListFragment")
+            // Update the user selected movie as the current movie in the shared viewmodel
             // This will automatically update the dual pane content
             moviesViewModel.updateCurrentMovie(it)
             // Navigate to the details screen
@@ -63,9 +62,14 @@ class MoviesListFragment : Fragment() {
             this.findNavController().navigate(action)
             binding.slidingPaneLayout.openPane()
         }
+        println("after adapter")
         binding.recyclerView.adapter = adapter
         recyclerViewVal.adapter?.notifyDataSetChanged()
         adapter.submitList(moviesViewModel.moviesData)
+        refreshMovieList(recyclerViewVal)
+//        requireActivity().recreate()
+        // apply changes and restart the Activity
+        // TODO recreateActivity() is not working
 
 //        addButton = view.findViewById<Button>(R.id.addButton)
 //        addButton?.setOnClickListener{
@@ -86,6 +90,10 @@ class MoviesListFragment : Fragment() {
         CoroutineScope(Dispatchers.Main).launch {
             recyclerView?.adapter?.notifyDataSetChanged()
         }
+    }
+
+    fun recreateActivity(){
+        requireActivity().recreate()
     }
 }
 class MovieListOnBackPressedCallback (private val slidingPaneLayout : SlidingPaneLayout)

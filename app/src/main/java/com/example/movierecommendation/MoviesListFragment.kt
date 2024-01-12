@@ -23,14 +23,11 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-
 class MoviesListFragment : Fragment() {
 
     private val moviesViewModel: MoviesViewModel by activityViewModels()
 //    private lateinit var adapter: MovieAdapter
+    private var addButton: Button? = null
 //    private val addButton : Button? = view?.findViewById(R.id.addButton)
 
     override fun onCreateView(
@@ -44,43 +41,45 @@ class MoviesListFragment : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        addButton = view.findViewById(R.id.addButton)
+
         val binding = FragmentMovieListBinding.bind(view)
         val recyclerViewVal = binding.recyclerView
+
         val slidingPaneLayout = binding.slidingPaneLayout
         slidingPaneLayout.lockMode = SlidingPaneLayout.LOCK_MODE_LOCKED
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
             MovieListOnBackPressedCallback(slidingPaneLayout))
-        // Initialize the adapter and set it to the RecyclerView.
+
         val adapter = MovieAdapter {
             println("!!!!!!!!!!!!!!!!!!create adapter in MovieListFragment")
-            // Update the user selected movie as the current movie in the shared viewmodel
-            // This will automatically update the dual pane content
+
             moviesViewModel.updateCurrentMovie(it)
-            // Navigate to the details screen
 
             val action = MoviesListFragmentDirections.actionMoviesListFragmentToDescriptionDetailsFragment()
             this.findNavController().navigate(action)
             binding.slidingPaneLayout.openPane()
         }
+
         println("after adapter")
         binding.recyclerView.adapter = adapter
-        recyclerViewVal.adapter?.notifyDataSetChanged()
+//        recyclerViewVal.adapter?.notifyDataSetChanged()
         adapter.submitList(moviesViewModel.moviesData)
-        refreshMovieList(recyclerViewVal)
+//        refreshMovieList(recyclerViewVal)
+
 //        requireActivity().recreate()
-        // apply changes and restart the Activity
         // TODO recreateActivity() is not working
 
-//        addButton = view.findViewById<Button>(R.id.addButton)
-//        addButton?.setOnClickListener{
-//            println("ggggggggggggggggggggggggggggggg")
-//        }
+        addButton?.setOnClickListener {
+            println("Button clicked!")
+        }
+        println("after addButton")
 
 //        addButton?.setOnClickListener(object : View.OnClickListener {
 //            override fun onClick(view: View?) {
 //                println("ggggggggggggggggggggggggggggggg")
 //            }
-//
 //        })
 
     }
@@ -92,9 +91,9 @@ class MoviesListFragment : Fragment() {
         }
     }
 
-    fun recreateActivity(){
-        requireActivity().recreate()
-    }
+//    fun recreateActivity(){
+//        requireActivity().recreate()
+//    }
 }
 class MovieListOnBackPressedCallback (private val slidingPaneLayout : SlidingPaneLayout)
     :OnBackPressedCallback(slidingPaneLayout.isSlideable && slidingPaneLayout.isOpen),

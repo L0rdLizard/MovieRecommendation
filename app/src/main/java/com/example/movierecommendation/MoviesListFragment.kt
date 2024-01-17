@@ -64,7 +64,7 @@ class MoviesListFragment : Fragment() {
 
         println("after adapter")
         binding.recyclerView.adapter = adapter
-//        recyclerViewVal.adapter?.notifyDataSetChanged()
+        recyclerViewVal.adapter?.notifyDataSetChanged()
         adapter.submitList(moviesViewModel.moviesData)
 //        refreshMovieList(recyclerViewVal)
 

@@ -28,6 +28,9 @@ class MoviesViewModel : ViewModel() {
             movieList.addNewMovie(301)
             movieList.addNewMovie(302)
             movieList.addNewMovie(303)
+            movieList.addNewMovie(304)
+            movieList.addNewMovie(305)
+            movieList.addNewMovie(306)
 
             _moviesData = movieList.loadMovieCards()
             println("Test 1111111111111111111111111111111111111111111")

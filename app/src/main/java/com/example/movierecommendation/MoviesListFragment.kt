@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.slidingpanelayout.widget.SlidingPaneLayout
@@ -24,7 +25,6 @@ import kotlinx.coroutines.launch
 
 
 class MoviesListFragment : Fragment() {
-
     private val moviesViewModel: MoviesViewModel by activityViewModels()
 //    private lateinit var adapter: MovieAdapter
     private var addButton: Button? = null
@@ -40,6 +40,9 @@ class MoviesListFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        val moviesViewModel: MoviesViewModel by activityViewModels()
+//        println("moviesViewModel.moviesData.size = " + moviesViewModel.moviesData.size + "\n");
+        println("moviesViewModel.moviesData.size = " + moviesViewModel.moviesData.value?.size + "\n");
         super.onViewCreated(view, savedInstanceState)
 
         addButton = view.findViewById(R.id.addButton)
@@ -62,10 +65,16 @@ class MoviesListFragment : Fragment() {
             binding.slidingPaneLayout.openPane()
         }
 
+        moviesViewModel.moviesData.observe(viewLifecycleOwner, Observer { movies ->
+            // Обновите ваш адаптер здесь
+            adapter.submitList(movies ?: listOf())
+        })
+
         println("after adapter")
         binding.recyclerView.adapter = adapter
         recyclerViewVal.adapter?.notifyDataSetChanged()
-        adapter.submitList(moviesViewModel.moviesData)
+//        adapter.submitList(moviesViewModel.moviesData)
+        adapter.submitList(moviesViewModel.moviesData.value ?: listOf())
 //        refreshMovieList(recyclerViewVal)
 
 //        requireActivity().recreate()

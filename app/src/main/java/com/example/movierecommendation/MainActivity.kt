@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
 //        val recycleView = findViewById<RecyclerView>(R.id.recycleView)
 //        recycleView.adapter = ItemAdapter(this, myDataset)
 //    }
-//    fun onMyButtonClick(view: View?) {
-//        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
-//    }
+    fun onMyButtonClick(view: View?) {
+        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
+    }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 

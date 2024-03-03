@@ -9,9 +9,6 @@ import androidx.fragment.app.activityViewModels
 import coil.load
 import com.example.movierecommendation.databinding.FragmentMovieBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class DescriptionDetailsFragment : Fragment() {
 
     private val moviesViewModel: MoviesViewModel by activityViewModels()
@@ -31,8 +28,13 @@ class DescriptionDetailsFragment : Fragment() {
 //            binding.titleDetail.text = getString(it.stringResourceId)
 //            binding.moviesImageDetail.load(it.imageResourceId)
 //            binding.description.text = getString(it.stringResourceId2)
+//            binding.moviesImageDetail.load(R.drawable.movie_brat)
             binding.titleDetail.text = it.nameRu
-            binding.moviesImageDetail.load(R.drawable.movie_brat)
+            binding.moviesImageDetail.load(it.posterUrlPreview) {
+                crossfade(true)
+                placeholder(R.drawable.placeholder)
+                error(R.drawable.error)
+            }
             binding.description.text = it.shortDescription
         }
 

@@ -31,7 +31,12 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
 //            binding.itemImage.load(movie.imageResourceId)
             binding.itemTitle.text = movie.nameRu
             binding.itemDescription.text = movie.shortDescription
-            binding.itemImage.load(R.drawable.movie_brat)
+//            binding.itemImage.load(R.drawable.movie_brat)
+            binding.itemImage.load(movie.posterUrlPreview) {
+                crossfade(true)
+                placeholder(R.drawable.placeholder)
+                error(R.drawable.error)
+            }
         }
     }
 

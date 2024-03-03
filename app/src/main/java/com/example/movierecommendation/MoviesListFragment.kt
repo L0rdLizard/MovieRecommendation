@@ -66,24 +66,18 @@ class MoviesListFragment : Fragment() {
         }
 
         moviesViewModel.moviesData.observe(viewLifecycleOwner, Observer { movies ->
-            // Обновите ваш адаптер здесь
             adapter.submitList(movies ?: listOf())
         })
 
-        println("after adapter")
         binding.recyclerView.adapter = adapter
         recyclerViewVal.adapter?.notifyDataSetChanged()
 //        adapter.submitList(moviesViewModel.moviesData)
         adapter.submitList(moviesViewModel.moviesData.value ?: listOf())
-//        refreshMovieList(recyclerViewVal)
 
-//        requireActivity().recreate()
-        // TODO recreateActivity() is not working
 
         addButton?.setOnClickListener {
             println("Button clicked!")
         }
-        println("after addButton")
 
 //        addButton?.setOnClickListener(object : View.OnClickListener {
 //            override fun onClick(view: View?) {
@@ -99,10 +93,6 @@ class MoviesListFragment : Fragment() {
             recyclerView?.adapter?.notifyDataSetChanged()
         }
     }
-
-//    fun recreateActivity(){
-//        requireActivity().recreate()
-//    }
 }
 class MovieListOnBackPressedCallback (private val slidingPaneLayout : SlidingPaneLayout)
     :OnBackPressedCallback(slidingPaneLayout.isSlideable && slidingPaneLayout.isOpen),

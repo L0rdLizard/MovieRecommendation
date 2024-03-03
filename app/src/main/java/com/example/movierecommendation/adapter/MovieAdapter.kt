@@ -26,12 +26,9 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
 
         fun bind(movie: MovieCard, context:Context) {
             println("!!!!!!!!!!!!!!!!!!!!!!!!MovieAdapter is working")
-//            binding.itemTitle.text = context.getString(movie.stringResourceId)
-//            binding.itemDescription.text = context.getString(movie.stringResourceId2)
-//            binding.itemImage.load(movie.imageResourceId)
+
             binding.itemTitle.text = movie.nameRu
             binding.itemDescription.text = movie.shortDescription
-//            binding.itemImage.load(R.drawable.movie_brat)
             binding.itemImage.load(movie.posterUrlPreview) {
                 crossfade(true)
                 placeholder(R.drawable.placeholder)
@@ -45,7 +42,6 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
         viewType: Int
     ): MoviesViewHolder {
 
-//        println(parent.context)
         context = parent.context
         return MoviesViewHolder(
             ListItem4Binding.inflate(

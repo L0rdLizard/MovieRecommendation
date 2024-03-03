@@ -13,13 +13,9 @@ import kotlinx.coroutines.launch
 class MoviesViewModel : ViewModel() {
 
     private var _currentMovie: MutableLiveData<MovieCard> = MutableLiveData<MovieCard>()
-//    private val movieList = Datasource()
     val currentMovie: LiveData<MovieCard>
         get() = _currentMovie
 
-//    private var _moviesData: ArrayList<MovieCard> = ArrayList()
-//    val moviesData: ArrayList<MovieCard>
-//        get() = _moviesData
 
     private var _moviesData: MutableLiveData<ArrayList<MovieCard>> = MutableLiveData()
     val moviesData: LiveData<ArrayList<MovieCard>>
@@ -36,20 +32,14 @@ class MoviesViewModel : ViewModel() {
             movieList.addNewMovie(305)
             movieList.addNewMovie(306)
 
-//            _moviesData = movieList.loadMovieCards()
             _moviesData.value = movieList.loadMovieCards()
             println("Test 1111111111111111111111111111111111111111111")
             println(movieList.loadMovieCards())
             println(_moviesData)
 
-//            if (_moviesData.size != 0) {
             if (_moviesData.value?.isNotEmpty() == true) {
                 println("all is ok1111111111111111111111111111111111111111111")
-//                _currentMovie.value = _moviesData[0]
-//                _currentMovie.postValue(_moviesData[0])
 
-//                println(_moviesData[0])
-//                _currentMovie.value = _moviesData[0]
                 println(_moviesData.value!![0])
 
                 _currentMovie.value = _moviesData.value!![0]

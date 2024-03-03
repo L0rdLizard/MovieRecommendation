@@ -1,13 +1,5 @@
 package com.example.movierecommendation
 
-//import android.os.Bundle
-//import android.view.View
-//import android.widget.Toast
-//import androidx.appcompat.app.AppCompatActivity
-//import androidx.navigation.ui.AppBarConfiguration
-//import androidx.recyclerview.widget.RecyclerView
-//import com.example.movierecommendation.adapter.ItemAdapter
-//import com.example.movierecommendation.data.Datasource
 
 import android.os.Bundle
 import android.view.View

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.movierecommendation.MoviesListFragment
 import com.example.movierecommendation.R
-import com.example.movierecommendation.databinding.ListItem4Binding
+import com.example.movierecommendation.databinding.ListItemBinding
 import com.example.movierecommendation.module.MovieCard
 import com.example.movierecommendation.network.objKinopoiskAPI
 import kotlinx.coroutines.launch
@@ -21,7 +21,7 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
 
     private lateinit var context: Context
 
-    class MoviesViewHolder(private var binding: ListItem4Binding) :
+    class MoviesViewHolder(private var binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: MovieCard, context:Context) {
@@ -44,7 +44,7 @@ class MovieAdapter(private val onItemClicked: (MovieCard) -> Unit) :
 
         context = parent.context
         return MoviesViewHolder(
-            ListItem4Binding.inflate(
+            ListItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )

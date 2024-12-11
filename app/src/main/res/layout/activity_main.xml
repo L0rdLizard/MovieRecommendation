@@ -78,7 +78,7 @@
 <!--    </FrameLayout>-->
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/addButton2"
         layout="@layout/content_main"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -77,7 +77,17 @@ class MoviesListFragment : Fragment() {
 
         addButton?.setOnClickListener {
             println("Button clicked!")
+            Toast.makeText(requireActivity(), "Зачем вы нажали?", Toast.LENGTH_SHORT).show()
         }
+
+        val includedView = view.findViewById<View>(R.id.addButton)
+//        val includedButton = includedView.findViewById<Button>(R.id.button_included)
+
+        includedView?.setOnClickListener {
+            println("Button from included layout clicked!")
+            Toast.makeText(requireContext(), "Кнопка из include нажата!", Toast.LENGTH_SHORT).show()
+        }
+
 
 //        addButton?.setOnClickListener(object : View.OnClickListener {
 //            override fun onClick(view: View?) {

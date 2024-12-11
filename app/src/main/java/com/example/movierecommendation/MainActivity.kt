@@ -56,6 +56,6 @@ class MainActivity : AppCompatActivity() {
 //        CoroutineScope(Dispatchers.Main).launch {
 //            println(objKinopoiskAPI.retrofitService.getMovie("301"))
 //        }
-
+//
 //    }
 }
